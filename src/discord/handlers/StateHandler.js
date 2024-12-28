@@ -20,28 +20,7 @@ class StateHandler {
     }
     
     if (config.statsChannels.enabled) require("../other/statsChannels.js");
-
-    global.guild = await client.guilds.fetch(config.discord.bot.serverID);
-    if (guild === undefined) {
-      return console.error(`Guild not found!`);
-    }
-
-    console.discord("Guild ready, successfully fetched " + guild.name);
-
-    if (config.verification.autoUpdater) {
-      require("../other/updateUsers.js");
-    }
-
-    global.guild = await client.guilds.fetch(config.discord.bot.serverID);
-    if (guild === undefined) {
-      return console.error(`Guild not found!`);
-    }
-
-    console.discord("Guild ready, successfully fetched " + guild.name);
-
-    if (config.verification.autoUpdater) {
-      require("../other/updateUsers.js");
-    }
+    if (config.verification.autoUpdater) require("../other/updateUsers.js");
 
     channel.send({
       embeds: [
