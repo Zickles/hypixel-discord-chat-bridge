@@ -12,7 +12,7 @@ class StateHandler {
     });
 
     global.guild = await client.guilds.fetch(config.discord.bot.serverID);
-    Logger.discordMessage("Guild ready, successfully fetched " + guild.name);
+    discordMessage("Guild ready, successfully fetched " + guild.name);
     
     const channel = await this.getChannel("Guild");
     if (channel === undefined) {
@@ -23,10 +23,10 @@ class StateHandler {
 
     global.guild = await client.guilds.fetch(config.discord.bot.serverID);
     if (guild === undefined) {
-      return Logger.errorMessage(`Guild not found!`);
+      return errorMessage(`Guild not found!`);
     }
 
-    Logger.discordMessage("Guild ready, successfully fetched " + guild.name);
+    discordMessage("Guild ready, successfully fetched " + guild.name);
 
     if (config.verification.autoUpdater) {
       require("../other/updateUsers.js");
